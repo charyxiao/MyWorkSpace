@@ -1,2 +1,3 @@
 # MVim
-My Vim Config
+
+Source Code Pro is a nice font! 
