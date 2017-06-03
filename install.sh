@@ -11,10 +11,11 @@ then
 fi
 
 
-echo "Step 1: cp vimrc vimrc.bundles vim/-->.vimrc .vimrc.bundles .vim/"
+echo "Step 1: cp vimrc vimrc.bundles -->.vimrc .vimrc.bundles "
 cp vimrc "${HOME}/.vimrc"
 cp vimrc.bundles "${HOME}/.vimrc.bundles"
-cp -r vim "${HOME}/.vim"
+mkdir -p "${HOME}/.vim/bundle/"
+git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/vundle
 
 echo "Step 2: Update/Install plugins using Plugin"
 shell_back=$SHELL
