@@ -14,6 +14,7 @@ set tw=100
 " encoding
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fileencoding=cp936
+set noswapfile
 " set encoding=utf-8
 
 " search
