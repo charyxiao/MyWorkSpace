@@ -1,0 +1,19 @@
+[http]
+	sslVerify = false
+[user]
+	email = xiaodong@baidu.com
+	name = xiaodong
+[alias]
+	gpush = "!f() { : push ; r=$1; [[ -z $r ]] && r=origin; b=$2; t=$(awk \"{ print \\$2 }\" $(git rev-parse --git-dir)/HEAD); t=${t#refs/heads/}; [[ -z $b ]] && b=$t; cmd=\"git push $r HEAD:refs/for/$b%topic=$t\"; echo $cmd; echo; $cmd; }; f"
+	lg = log --stat
+	lgp = log --stat -p
+	lgg = log --graph
+	lgga = log --graph --decorate --all
+	lgm = log --graph --max-count=10
+	lo = log --oneline --decorate
+	lol = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lola = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	log = log --oneline --decorate --graph
+	loga = log --oneline --decorate --graph --all
+[color]
+	ui = auto
