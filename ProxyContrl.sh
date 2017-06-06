@@ -47,7 +47,7 @@ unset)
     ;;
 *)
     echo 'usage start|stop|reload|set|unset'
-    exit 1
+    #exit 1
     ;;
 esac
 
