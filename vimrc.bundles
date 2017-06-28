@@ -4,6 +4,10 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
+Bundle 'majutsushi/tagbar'
+nmap <Leader>t :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+
 Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_do_mapping = 1 " Disable default mappings
 nmap s <Plug>(easymotion-s)
@@ -64,10 +68,10 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" ×Ô¶¯²¹È«µ¥ÒıºÅ£¬Ë«ÒıºÅµÈ
+" è‡ªåŠ¨è¡¥å…¨å•å¼•å·ï¼ŒåŒå¼•å·ç­‰
 Bundle 'Raimondi/delimitMate'
 
-" ¿ìËÙ×¢ÊÍ
+" å¿«é€Ÿæ³¨é‡Š
 Bundle 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims=1
 
