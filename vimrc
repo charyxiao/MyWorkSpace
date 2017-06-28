@@ -44,8 +44,6 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
-let g:netrw_winsize = 30
-nmap <silent> <leader>fe :Sexplore!<cr> 
 map <c-k> <c-w>k
 map <c-j> <c-w>j
 map <c-h> <c-w>h
