@@ -4,6 +4,12 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
+Bundle 'tpope/vim-surround'
+
+Bundle 'junegunn/vim-easy-align'
+vmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+
 Bundle 'majutsushi/tagbar'
 nmap <Leader>t :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
