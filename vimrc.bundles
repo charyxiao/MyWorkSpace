@@ -4,6 +4,14 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
+Bundle 'altercation/vim-colors-solarized'
+let g:solarized_termtrans=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
+let g:solarized_termcolors=256
+
+Bundle 'fatih/vim-go'
+
 Bundle 'tpope/vim-surround'
 
 Bundle 'junegunn/vim-easy-align'

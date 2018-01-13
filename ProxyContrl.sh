@@ -20,12 +20,16 @@
 echo "Be sure you are using: source ProxyContrl.sh option"
 case $1 in
 start)
-    nohup sslocal -c shadowsocks.json &>> sslocal.log &
+#    nohup sslocal -c shadowsocks.json &>> sslocal.log &
+    cd /root/code/shadowsocksr/shadowsocks
+    nohup ./local.py -s 35.194.131.171 -p 80 -k pp950530 -m chacha20-ietf -O auth_chain_a -o tls1.2_ticket_auth &>> sslocal.log &
     export http_proxy=http://127.0.0.1:8118
     export https_proxy=http://127.0.0.1:8118
     export ftp_proxy=http://127.0.0.1:8118
     export no_proxy=localhost,10.0.0.0,172.16.0.0,192.168.0.0,192.168.255.0
+    systemctl stop privoxy
     systemctl start privoxy
+    cd -
     ;;
 stop)
     unset http_proxy https_proxy ftp_proxy no_proxy

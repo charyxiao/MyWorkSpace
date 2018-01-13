@@ -26,12 +26,20 @@ nnoremap / /\v
 vnoremap / /\v
 noremap <silent><leader>/ :nohls<CR>
 
+" colorschme
+set background=dark
+set t_Co=256
+colorscheme solarized
+
 " cmd line
 set ruler
 set showcmd
 set showmode
 set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
 set laststatus=2
+" hi StatusLine cterm=none ctermbg=black ctermfg=cyan
+" hi StatusLineNC cterm=none ctermbg=black ctermfg=cyan 
+" hi VertSplit cterm=none ctermbg=black ctermfg=cyan
 
 " hotkey
 imap <c-k> <Up>
@@ -59,7 +67,7 @@ noremap <leader>4 4gt
 noremap <leader>5 5gt
 noremap <leader>6 6gt
 noremap <leader>7 7gt
-noremap <leader>n :tabnew<CR>
+" noremap <leader>n :tabnew<CR>
 
 " other set
 set number
@@ -87,3 +95,4 @@ if filereadable("cscope.out")
     nmap <leader>/i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     nmap <leader>/d :cs find d <C-R>=expand("<cword>")<CR><CR>
 endif
+autocmd BufWritePre *.go :GoFmt
