@@ -1,0 +1,11 @@
+alias cp='cp -i'
+alias mv='mv -i'
+alias grep='/bin/grep --color'
+alias ls='ls --color'
+alias ts='~/kits/ts'
+alias st='~/kits/st'
+alias bkb='~/kits/bkb'
+alias toftp='~/kits/toftp'
+alias cctags='ctags -R --c++-kinds=+px --fields=+iaS --extra=+q'
+alias ccscope='cscope -Rbkq'
+export EDITOR=vim

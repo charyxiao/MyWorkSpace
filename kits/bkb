@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ $# -ne 1 ]]; then
+    echo "Usage: bkb byte_size"
+    exit 1
+fi
+
+byte_size=$1
+Kb=$(echo "scale=4; ${byte_size}*1.0/1024" | bc)
+Mb=$(echo "scale=4; ${byte_size}*1.0/1024/1024" | bc)
+Gb=$(echo "scale=4; ${byte_size}*1.0/1024/1024/1024" | bc)
+Tb=$(echo "scale=4; ${byte_size}*1.0/1024/1024/1024/1024" | bc)
+echo "${byte_size}b = ${Kb}Kb = ${Mb}Mb = ${Gb}Gb = ${Tb}Tb"
+
