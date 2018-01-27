@@ -17,6 +17,7 @@
 
 ##yum -y install privoxy
 ##echo 'forward-socks5 / 127.0.0.1:1080 .' >> /etc/privoxy/config
+# python mujson_mgr.py -a -u charyxiao -p port -k password -m chacha20-ietf -O auth_chain_a -o tls1.2_ticket_auth_compatible
 echo "Be sure you are using: source ProxyContrl.sh option"
 case $1 in
 start)
