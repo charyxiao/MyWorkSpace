@@ -32,6 +32,12 @@ set t_Co=256
 colorscheme solarized
 
 " cmd line
+set cursorcolumn
+hi CursorColumn cterm=none ctermbg=black ctermfg=none
+set cursorline
+hi CursorLine cterm=none ctermbg=black ctermfg=none
+set cc=100
+hi ColorColumn cterm=none ctermbg=black ctermfg=none
 set ruler
 set showcmd
 set showmode
