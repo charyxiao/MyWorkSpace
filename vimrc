@@ -36,6 +36,7 @@ set cursorcolumn
 hi CursorColumn cterm=none ctermbg=black ctermfg=none
 set cursorline
 hi CursorLine cterm=none ctermbg=black ctermfg=none
+hi CursorLineNr cterm=none ctermbg=black ctermfg=none
 set cc=100
 hi ColorColumn cterm=none ctermbg=black ctermfg=none
 set ruler
