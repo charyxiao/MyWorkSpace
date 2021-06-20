@@ -10,6 +10,8 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set tw=100
+set autoindent
+inoremap { {}<Esc>i<CR><Esc>koi<Esc>j<C-S-v><S-%>=j<S-$>xa
 
 " encoding
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
