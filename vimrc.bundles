@@ -10,8 +10,6 @@ let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 let g:solarized_termcolors=256
 
-Bundle 'fatih/vim-go'
-
 Bundle 'tpope/vim-surround'
 
 Bundle 'junegunn/vim-easy-align'
@@ -32,7 +30,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:NERDTreeMapOpenSplit = 's'
 let g:NERDTreeMapOpenVSplit = 'v'
 
-Bundle 'Lokaltog/vim-easymotion'
+Bundle 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 1 " Disable default mappings
 nmap s <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
