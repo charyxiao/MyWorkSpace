@@ -1,28 +1,25 @@
 set nocompatible
 filetype off " required! turn off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
 
-Bundle 'altercation/vim-colors-solarized'
+call plug#begin('~/.vim/plugged')
+
+Plug 'altercation/vim-colors-solarized'
 let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 let g:solarized_termcolors=256
 
-Bundle 'fatih/vim-go'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" let g:airline#extensions#tabline#enabled = 1
 
-Bundle 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
-Bundle 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align'
 vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 
-Bundle 'majutsushi/tagbar'
-nmap <Leader>t :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
-
-Bundle 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree' , { 'on':  'NERDTreeToggle' }
 map <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
@@ -32,7 +29,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:NERDTreeMapOpenSplit = 's'
 let g:NERDTreeMapOpenVSplit = 'v'
 
-Bundle 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 1 " Disable default mappings
 nmap s <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
@@ -42,31 +39,15 @@ map <Leader><Leader>k <Plug>(easymotion-k)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
 map <Leader><leader>. <Plug>(easymotion-repeat)
 
-Bundle 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_map = '<leader>p'
-let g:ctrlp_cmd = 'CtrlP'
-map <leader>f :CtrlPMRU<CR>
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
-    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
-    \ }
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_max_height=15
-let g:ctrlp_match_window_reversed=0
-let g:ctrlp_mruf_max=500
-let g:ctrlp_follow_symlinks=1
-
-Bundle 'tacahiroy/ctrlp-funky'
-nnoremap <Leader>r :CtrlPFunky<Cr>
-
-Plugin 'terryma/vim-smooth-scroll'
+Plug 'terryma/vim-smooth-scroll'
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
-Bundle 'kien/rainbow_parentheses.vim'
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'kien/rainbow_parentheses.vim'
 " \ ['black',       'SeaGreen3'],
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -93,21 +74,54 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " 自动补全单引号，双引号等
-Bundle 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 
 " 快速注释
-Bundle 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims=1
 
-Bundle 'Valloric/YouCompleteMe'
-let g:ycm_use_ultisnips_completer = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_auto_trigger = 1
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_key_invoke_completion = '<C-f>'
+Plug 'majutsushi/tagbar'
+nmap <Leader>t :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+
+Plug 'ludovicchabant/vim-gutentags'
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+let g:gutentags_ctags_tagfile = '.tags'
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
+
+Plug 'Yggdroot/LeaderF'
+noremap <leader>p :Leaderf file --popup<cr>
+noremap <leader>b :Leaderf buffer --popup<cr>
+noremap <leader>r :Leaderf mru --popup<cr>
+noremap <leader>f :Leaderf function --popup<cr>
+let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_WindowHeight = 0.30
+let g:Lf_CacheDirectory = expand('~/.vim/cache')
+let g:Lf_ShowRelativePath = 0
+let g:Lf_ShowDevIcons = 0
+let g:Lf_PreviewResult = {'Function': 0, 'file': 0 }
+
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete-clangx'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+let g:deoplete#enable_at_startup = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 set completeopt-=preview
-" let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_enable_diagnostic_highlighting = 0
-let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.mconf.py"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+Plug 'Shougo/echodoc.vim'
+set noshowmode
+let g:echodoc#enable_at_startup = 1
+
+call plug#end()

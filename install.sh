@@ -3,7 +3,7 @@
 # yum update vim*
 # yum install git
 # yum install tmux
-# yum isntall ctage cscope
+# yum isntall ctage
 
 echo "Step 1: set up ps1 && git [Be Sure git has been Installed!]"
 
@@ -37,30 +37,17 @@ git config --global alias.log 'log --oneline --decorate --graph'
 git config --global alias.loga 'log --oneline --decorate --graph --all'
 
 
-echo "Step 2: set up vim[Be Sure Vim8/ctags/ccscope has been Installed]"
-with_ycm=0
+echo "Step 2: set up vim[Be Sure Vim8/ctags has been Installed]"
 
 cp vimrc "${HOME}/.vimrc"
-if [[ $with_ycm -eq 1 ]]; then
-    cp vimrc.bundles.ycm "${HOME}/.vimrc.bundles"
-else
-    cp vimrc.bundles "${HOME}/.vimrc.bundles"
-fi
-mkdir -p "${HOME}/.vim/bundle/"
-git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/vundle >&/dev/null
+cp vimrc.plug "${HOME}/.vimrc.plug"
 
-vim -u ${HOME}/.vimrc.bundles +PlugInstall! +PlugClean! +qall
+mkdir -p "${HOME}/.vim/plugged/"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-if [[ $with_ycm -eq 1 ]]; then
-    echo "Compile YouCompleteMe...."
-    cd ${HOME}/.vim/bundle/YouCOmpleteMe
-    if [ `which clang` ]
-    then
-        python install.py --clang-completer --system-libclang
-    else
-        python install.py --clang-completer
-    fi
-fi
+vim -u ${HOME}/.vimrc.plug +PlugInstall! +PlugClean! +qall
+
 
 echo "Step 2: set up tmux[Be Sure tmux has been Installed]"
 
