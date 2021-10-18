@@ -117,7 +117,7 @@ let g:Lf_PreviewResult = {'Function': 0, 'file': 0 }
 " Plug 'roxma/vim-hug-neovim-rpc'
 " let g:deoplete#enable_at_startup = 1
 " autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-" set completeopt-=preview
+set completeopt-=preview
 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 Plug 'Shougo/echodoc.vim'
@@ -134,6 +134,10 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gb <C-o> 
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 autocmd CursorHold * silent call CocActionAsync('highlight')
+set signcolumn=number
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
