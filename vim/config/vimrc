@@ -19,10 +19,11 @@ set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
 " inoremap { {}<Esc>i<CR><Esc>koi<Esc>j<C-S-v><S-%>=j<S-$>xa
 
 " encoding
+set termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fileencoding=cp936
-set noswapfile
 " set encoding=utf-8
+set noswapfile
 
 " search
 set hlsearch
@@ -85,5 +86,5 @@ set autoread
 set backspace=eol,start,indent
 syntax on
 
-" alias cctags='ctags -R --fields=+iaS --extra=+q *'
+nmap <silent><unique> <Leader>tag :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 set tags=./.tags;,.tags

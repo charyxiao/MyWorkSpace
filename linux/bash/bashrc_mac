@@ -1,0 +1,19 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH=$PATH:/Library/Developer/CommandLineTools/usr/bin
+
+test -f ~/.git-completion.bash && source ~/.git-completion.bash
+test -f ~/.bash_git_ps1.sh && source ~/.bash_git_ps1.sh
+test -f ~/.alias.sh && source ~/.alias.sh
+
+export EDITOR=vim
+alias realink='greadlink'
+alias vim='/opt/homebrew/bin/vim'
+
+# For tencent
+export GONOPROXY="*.code.oa.com"
+export GONOSUMDB="*.code.oa.com"
+export GOPRIVATE="*.code.oa.com"
+export GOINSECURE="*.code.oa.com"
+export http_proxy=http://127.0.0.1:12639
+export https_proxy=http://127.0.0.1:12639
+export all_proxy=http://127.0.0.1:12639

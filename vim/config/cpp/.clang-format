@@ -1,0 +1,21 @@
+# 参考：https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+---
+# Google基础编码规范
+BasedOnStyle: Google
+---
+Language: Cpp
+# 行长度80或者100（Google编码规范为80，腾讯编码规范为100）
+ColumnLimit: 80
+# 指针对齐到类型名
+PointerAlignment: Left
+DerivePointerAlignment: false
+# 调整include顺序
+SortIncludes: true
+IncludeBlocks: Regroup
+# 注释不对齐，仅跟行尾;距离两个空格
+AlignTrailingComments: false
+---
+Language: Proto
+ColumnLimit: 0
+AlignTrailingComments: false
+...

@@ -1,26 +1,15 @@
 # MyWorkSpace
 
+* linux
+* vim
+* kits
+
 ## Installation
+### linux
 * git clone https://github.com/charyxiao/MyWorkSpace.git
-* cd MyWorkSpace && sh install.sh
-
-## required
-* git vim8 tmux ctags clang
-* if you are using centos7, see install.sh line2-6
-
-## For c/c++ Completion
-* deoplete.nvim + deoplete-clangx[clang + python3]
-```
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/deoplete-clangx'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-```
-
-* coc.nvim [nodejs + clangd include by llvm]
-    - `:CocInstall coc-clangd`
-    - copy coc-settings.json .vim
-
-## Font
-* Source Code Pro is a nice font!
-* Courier New is also a nice font!
+* cd MyWorkSpace && cd linux && sh install.sh
+* cd MyWorkSpace && cd vim && sh install.sh
+### mac
+* git clone https://github.com/charyxiao/MyWorkSpace.git
+* cd MyWorkSpace && cd linux && sh mac_install.sh
+* cd MyWorkSpace && cd vim && sh mac_install.sh
