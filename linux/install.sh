@@ -9,6 +9,7 @@ if [ -h .bashrc ] || [ -f .bashrc ];then
     mv .bashrc .bashrc.${suffix}
 fi
 ln -s $CPATH/bash/bashrc .bashrc
+rm .bash_git_ps1.sh .alias.sh
 ln -s $CPATH/bash/bash_git_ps1.sh .bash_git_ps1.sh
 ln -s $CPATH/bash/alias.sh .alias.sh
 
@@ -32,4 +33,7 @@ if [ -h .gitconfig ] || [ -f .gitconfig ]; then
     mv .gitconfig .gitconfig.${suffix}
 fi
 ln -s $CPATH/git/gitconfig .gitconfig
+rm .git-completion.bash
 ln -s $CPATH/git/git-completion.bash .git-completion.bash
+
+ln -s $CPATH/kits kits
