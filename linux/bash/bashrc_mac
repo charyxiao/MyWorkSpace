@@ -1,5 +1,5 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH=$PATH:/Library/Developer/CommandLineTools/usr/bin
+export PATH=$PATH:/Library/Developer/CommandLineTools/usr/bin:/opt/homebrew/opt/grep/libexec/gnubin
 
 test -f ~/.git-completion.bash && source ~/.git-completion.bash
 test -f ~/.bash_git_ps1.sh && source ~/.bash_git_ps1.sh
@@ -8,6 +8,7 @@ test -f ~/.alias.sh && source ~/.alias.sh
 export EDITOR=vim
 alias realink='greadlink'
 alias vim='/opt/homebrew/bin/vim'
+alias grep='/opt/homebrew/bin/ggrep'
 
 # For tencent
 export GONOPROXY="*.code.oa.com"

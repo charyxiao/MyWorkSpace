@@ -18,5 +18,5 @@ alias dtools="${kitspath}/dtools"
 alias cvm="expect ${kitspath}/cvmlogin"
 
 # docker
-alias trpc-cpp='docker exec -it gcc7 /bin/su -'
+alias sug='docker exec -it sug /bin/su -'
 alias trpc-go='docker exec -it trpc-go /sbin/init -'
