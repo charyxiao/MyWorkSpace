@@ -26,7 +26,7 @@ export LC_ALL=
 # 安装软件位置
 ipath=/root
 export PATH=${ipath}/python3.9/bin:${ipath}/clang+llvm-10.0.0-x86_64-linux-sles11.3/bin:${ipath}/node-v16.14.2-linux-x64/bin:$PATH
-export LD_LIBRARY_PATH=/${ipath}python3.9/lib:${ipath}/libffi/lib64:$LD_LIBRARY_PATH
+# export LD_LIBRARY_PATH=${ipath}/python3.9/lib:${ipath}/libffi/lib64:$LD_LIBRARY_PATH
 alias ctags='${ipath}/ctags5.9/bin/ctags'
 alias vim='${ipath}/vim82/bin/vim'
 alias vimdiff='${ipath}/vim82/bin/vimdiff'
