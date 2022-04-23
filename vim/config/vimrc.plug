@@ -3,11 +3,10 @@ filetype off " required! turn off
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'altercation/vim-colors-solarized'
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-let g:solarized_termcolors=256
+" Plug 'altercation/vim-colors-solarized'
+Plug 'joshdick/onedark.vim'
+
+Plug 'sheerun/vim-polyglot'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -125,7 +124,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gb <C-o> 
+nmap <silent> gb <C-o>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>

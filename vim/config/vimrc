@@ -15,7 +15,8 @@ set expandtab
 set tw=100
 set autoindent
 set list
-set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
+set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶
+" set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
 " inoremap { {}<Esc>i<CR><Esc>koi<Esc>j<C-S-v><S-%>=j<S-$>xa
 
 " encoding
@@ -40,6 +41,7 @@ noremap <silent><leader><space> :% s/\s\+$//g<CR>
 " colorschme
 set background=dark
 set t_Co=256
+colorscheme onedark
 
 " cmd line
 set cursorcolumn
