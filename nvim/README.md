@@ -15,17 +15,12 @@
 3. launch neovim via command `nvim`
 4. invoke command `:PackerSync` in neovim and wait for plugin installings
 5. relaunch neovim and the treesitter plugin will automatically download all matained json files for better highlighting.
-6. for LSP supports, you need to install different lsp servers by yourself and add them to `init-lspconf.lua`
+6. for LSP supports, you need to install different lsp servers by yourself and add them to `lua/plugins-config/lspconf.lua`
 
 ## LSP servers
 
-I'm currently using Archlinux with [paru](https://github.com/Morganamilo/paru) as my AUR helper. For installing language servers, you can use scripts below.
-
 ```shell
-sudo pacman -S clang
-sudo pacman -S pyright
-sudo pacman -S lua-language-server
-sudo pacman -S bash-language-server
-paru -S jdtls
+brew clang
+brew bash-language-server
 ```
 

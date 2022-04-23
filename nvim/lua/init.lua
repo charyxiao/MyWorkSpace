@@ -1,10 +1,10 @@
--- load plugins & keymaps
-require("plugins")
-require("keymaps")
-
 -- setup space as leader key
 vim.mapleader = ","
 vim.g.mapleader = ","
+
+-- load plugins & keymaps
+require("plugins")
+require("keymaps")
 
 -- tab & listchars
 vim.o.fdm = "marker"
@@ -13,8 +13,9 @@ vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.expandtab = true
 vim.o.autoindent = true
-vim.opt.list = true
-vim.opt.listchars = {tab='→\\', eol='↵', trail='·', space='⋅'}
+vim.o.list = true
+-- vim.opt.listchars = {tab='→\\', eol='↵', trail='·', space='⋅'}
+vim.opt.listchars = {tab='→\\', trail='·', space='⋅'}
 
 -- search
 vim.o.hlsearch = true
@@ -31,6 +32,7 @@ vim.o.wrap = true
 vim.o.foldenable = false
 vim.o.signcolumn = "yes"
 vim.o.completeopt = "menu,menuone,noselect"
+vim.o.termguicolors = true
 
 -- disable some useless standard plugins to save startup time
 -- these features have been better covered by plugins
