@@ -1,10 +1,8 @@
-let mapleader = ','
-let g:mapleader = ','
+let mapleader = ' '
+let g:mapleader = ' '
 if filereadable(expand("~/.vimrc.plug"))
     source ~/.vimrc.plug
 endif
-
-let g:airline_section_z = airline#section#create(['windowswap', 'obsession', 'LN:%p%%', ' = %l', '/%L', ' CN:%v'])
 
 " tab
 set fdm=marker
@@ -17,7 +15,11 @@ set autoindent
 set list
 set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶
 " set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
-" inoremap { {}<Esc>i<CR><Esc>koi<Esc>j<C-S-v><S-%>=j<S-$>xa
+
+" colorschme
+set background=dark
+set t_Co=256
+colorscheme onedark
 
 " encoding
 set termencoding=utf-8
@@ -25,60 +27,13 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fileencoding=cp936
 " set encoding=utf-8
 set noswapfile
+let g:airline_section_z = airline#section#create(['windowswap', 'obsession', 'LN:%p %', ' = %l', '/%L', ' CN:%v'])
 
 " search
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-nnoremap / /\v
-vnoremap / /\v
-noremap <silent><leader>/ :nohls<CR>
-
-" del all space
-noremap <silent><leader><space> :% s/\s\+$//g<CR>
-
-" colorschme
-set background=dark
-set t_Co=256
-colorscheme onedark
-
-" cmd line
-set cursorcolumn
-hi CursorColumn cterm=none ctermbg=black ctermfg=none
-set cursorline
-hi CursorLine cterm=none ctermbg=black ctermfg=none
-hi CursorLineNr cterm=none ctermbg=black ctermfg=none
-set cc=100
-hi ColorColumn cterm=none ctermbg=black ctermfg=none
-set ruler
-set showcmd
-set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
-set laststatus=2
-" hi StatusLine cterm=none ctermbg=black ctermfg=cyan
-" hi StatusLineNC cterm=none ctermbg=black ctermfg=cyan
-" hi VertSplit cterm=none ctermbg=black ctermfg=cyan
-hi VertSplit cterm=none ctermbg=236 ctermfg=236
-
-" hotkey
-imap <c-k> <Up>
-imap <c-j> <Down>
-imap <c-h> <Left>
-imap <c-l> <Right>
-vnoremap < <gv
-vnoremap > >gv
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>w :w<CR>
-map <c-k> <c-w>k
-map <c-j> <c-w>j
-map <c-h> <c-w>h
-map <c-l> <c-w>l
-map wj :resize -3<CR>
-map wk :resize +3<CR>
-map wl :vertical resize -5<CR>
-map wh :vertical resize +5<CR>
 
 " other set
 set number
@@ -88,8 +43,66 @@ set autoread
 set backspace=eol,start,indent
 syntax on
 
+
+" cmd line
+set cursorcolumn
+set cursorline
+set cc=120
+set showcmd
+
+" KeyMap.............
+imap <c-k> <Up>
+imap <c-j> <Down>
+imap <c-h> <Left>
+imap <c-l> <Right>
+vnoremap < <gv
+vnoremap > >gv
+map <c-k> <c-w>k
+map <c-j> <c-w>j
+map <c-h> <c-w>h
+map <c-l> <c-w>l
+map wj :resize -3<CR>
+map wk :resize +3<CR>
+map wl :vertical resize -5<CR>
+map wh :vertical resize +5<CR>
+" search
+nnoremap / /\v
+vnoremap / /\v
+noremap <silent><leader>/ :nohls<CR>
+" del all space
+noremap <silent><leader><space> :% s/\s\+$//g<CR>
 nmap <silent><unique> <Leader>tag :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 set tags=./.tags;,.tags
+
+" Plugin's KeyMap
+" vim-surround
+" cs"' 变更 "->'
+" ds" 删除"
+" ys" 新增"
+" vim-easy-align
+vmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+" nerdtree
+map <leader>n :NERDTreeToggle<CR>
+" vim-easymotion
+nmap s <Plug>(easymotion-s)
+" tagbar
+nmap <Leader>t :TagbarToggle<CR>
+" leaderF
+noremap <leader>p :Leaderf file --popup<cr>
+noremap <leader>b :Leaderf buffer --popup<cr>
+noremap <leader>r :Leaderf mru --popup<cr>
+noremap <leader>f :Leaderf function --popup<cr>
+" coc
+nmap <leader>rn <Plug>(coc-rename)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gb <C-o>
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent><nowait> <space>a :<C-u>CocList diagnostics<cr>
 
 " 删除行尾空格
 function! <SID>StripTrailingWhitespaces()
@@ -144,6 +157,7 @@ function! GoogleCppIndent()
     endwhile
     return l:orig_indent
 endfunction
+
 set cinoptions=h1,l1,g1,t0,i4,+4,(0,w1,W4)
 autocmd BufEnter *.{cc,cxx,cpp,h,hh,hpp,hxx} setlocal indentexpr=GoogleCppIndent()
 let b:undo_indent = "setl sw< ts< sts< et< tw< wrap< cin< cino< inde<"

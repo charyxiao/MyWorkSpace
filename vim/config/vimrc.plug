@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'altercation/vim-colors-solarized'
 Plug 'joshdick/onedark.vim'
 
+" syntax highlighting for multilanguage
 Plug 'sheerun/vim-polyglot'
 
 Plug 'vim-airline/vim-airline'
@@ -15,11 +16,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 
 Plug 'junegunn/vim-easy-align'
-vmap <Leader>a <Plug>(EasyAlign)
-nmap <Leader>a <Plug>(EasyAlign)
 
 Plug 'scrooloose/nerdtree' , { 'on':  'NERDTreeToggle' }
-map <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
 "close vim if the only window left open is a NERDTree
@@ -30,13 +28,7 @@ let g:NERDTreeMapOpenVSplit = 'v'
 
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 1 " Disable default mappings
-nmap s <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
-map <Leader><leader>h <Plug>(easymotion-linebackward)
-map <Leader><Leader>j <Plug>(easymotion-j)
-map <Leader><Leader>k <Plug>(easymotion-k)
-map <Leader><leader>l <Plug>(easymotion-lineforward)
-map <Leader><leader>. <Plug>(easymotion-repeat)
 
 Plug 'terryma/vim-smooth-scroll'
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
@@ -44,10 +36,11 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
+" 自动补全单引号，双引号等
+Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'kien/rainbow_parentheses.vim'
-" \ ['black',       'SeaGreen3'],
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -72,15 +65,12 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" 自动补全单引号，双引号等
-Plug 'Raimondi/delimitMate'
 
 " 快速注释
 Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims=1
 
 Plug 'majutsushi/tagbar'
-nmap <Leader>t :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 Plug 'ludovicchabant/vim-gutentags'
@@ -98,10 +88,6 @@ endif
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 
 Plug 'Yggdroot/LeaderF'
-noremap <leader>p :Leaderf file --popup<cr>
-noremap <leader>b :Leaderf buffer --popup<cr>
-noremap <leader>r :Leaderf mru --popup<cr>
-noremap <leader>f :Leaderf function --popup<cr>
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_WindowHeight = 0.30
@@ -112,22 +98,10 @@ let g:Lf_PreviewResult = {'Function': 0, 'file': 0 }
 
 set completeopt-=preview
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-Plug 'Shougo/echodoc.vim'
-set noshowmode
-let g:echodoc#enable_at_startup = 1
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-clangd']
 set updatetime=300
-nmap <leader>rn <Plug>(coc-rename)
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gb <C-o>
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 set signcolumn=number
 
