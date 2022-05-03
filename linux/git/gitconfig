@@ -43,3 +43,5 @@
     insteadOf = http://git.woa.com/
 [http]
     sslverify = false
+[url "http://"]
+    insteadOf = https://

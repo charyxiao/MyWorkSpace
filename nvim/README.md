@@ -23,4 +23,3 @@
 brew clang
 brew bash-language-server
 ```
-

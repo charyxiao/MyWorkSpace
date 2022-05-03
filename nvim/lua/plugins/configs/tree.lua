@@ -23,7 +23,6 @@ require('nvim-tree').setup {
         height = 30,
         hide_root_folder = false,
         side = 'left',
-        auto_resize = true,
         mappings = {
             custom_only = false,
             list = {}
@@ -32,8 +31,14 @@ require('nvim-tree').setup {
         relativenumber = false,
         signcolumn = "yes"
     },
+    update_cwd = true,
+    update_focused_file = {
+        enable = true,
+        update_cwd = true
+    },
 }
 
+vim.g.nvim_tree_respect_buf_cwd = 1
 -- 目录后加反斜杠
 -- vim.g.nvim_tree_add_trailing = 1
 
@@ -62,8 +67,6 @@ let g:nvim_tree_icons = {
     \   }
     \ }
 ]])
-
-
 
 -- 默认按键
 -- o     ：打开目录或文件

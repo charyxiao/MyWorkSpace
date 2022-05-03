@@ -1,10 +1,6 @@
 -- setup space as leader key
-vim.mapleader = ","
-vim.g.mapleader = ","
-
--- load plugins & keymaps
-require("plugins")
-require("keymaps")
+vim.mapleader = " "
+vim.g.mapleader = " "
 
 -- tab & listchars
 vim.o.fdm = "marker"
@@ -16,6 +12,7 @@ vim.o.autoindent = true
 vim.o.list = true
 -- vim.opt.listchars = {tab='→\\', eol='↵', trail='·', space='⋅'}
 vim.opt.listchars = {tab='→\\', trail='·', space='⋅'}
+vim.opt.fileencoding = "utf-8"
 
 -- search
 vim.o.hlsearch = true

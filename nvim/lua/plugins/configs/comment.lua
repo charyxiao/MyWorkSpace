@@ -7,23 +7,23 @@ require("Comment").setup({
     end,
     toggler = {
         -- 切换行注释
-        line = "<leader>c<space>",
+        line = "gcc",
         -- 切换块注释
-        block = "<leader>C<space>"
+        block = "gCc"
     },
     opleader = {
         -- 可视模式下的行注释
-        line = "<leader>cv",
+        line = "gcv",
         -- 可视模式下的块注释
-        block = "<leader>Cv"
+        block = "gCv"
     },
     extra = {
         -- 在当前行上方新增行注释
-        above = "<leader>cO",
+        above = "gca",
         -- 在当前行下方新增行注释
-        below = "<leader>co",
+        below = "gcj",
         -- 在当前行行尾新增行注释
-        eol = "<leader>ca"
+        eol = "gck"
     },
     -- 根据当前光标所在上下文判断不同类别的注释
     -- 由 nvim-ts-context-commentstring  提供
