@@ -89,10 +89,10 @@ nmap s <Plug>(easymotion-s)
 " tagbar
 nmap <Leader>t :TagbarToggle<CR>
 " leaderF
-noremap <leader>p :Leaderf file --popup<cr>
-noremap <leader>b :Leaderf buffer --popup<cr>
-noremap <leader>r :Leaderf mru --popup<cr>
-noremap <leader>f :Leaderf function --popup<cr>
+noremap <leader>ff :Leaderf file --popup<cr>
+noremap <leader>fb :Leaderf buffer --popup<cr>
+noremap <leader>fr :Leaderf mru --popup<cr>
+noremap <leader>fm :Leaderf function --popup<cr>
 " coc
 nmap <leader>rn <Plug>(coc-rename)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
