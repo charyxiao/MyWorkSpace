@@ -67,8 +67,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 
 " 快速注释
-Plug 'scrooloose/nerdcommenter'
-let g:NERDSpaceDelims=1
+Plug 'tpope/vim-commentary'
 
 Plug 'majutsushi/tagbar'
 let g:tagbar_autofocus = 1

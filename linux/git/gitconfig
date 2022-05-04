@@ -33,15 +33,6 @@
 [merge]
 	tool = vimdiff
 [credential]
-	helper = store
-# For Tencent
-[url "git@git.code.oa.com:"]
-    insteadOf = https://git.code.oa.com/
-    insteadOf = http://git.code.oa.com/
-[url "git@git.woa.com:"]
-    insteadOf = https://git.woa.com/
-    insteadOf = http://git.woa.com/
-[http]
-    sslverify = false
+    helper = store
 [url "http://"]
     insteadOf = https://
