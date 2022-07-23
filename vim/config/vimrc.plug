@@ -72,19 +72,21 @@ Plug 'tpope/vim-commentary'
 Plug 'majutsushi/tagbar'
 let g:tagbar_autofocus = 1
 
-Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
-let g:gutentags_ctags_tagfile = '.tags'
-let s:vim_tags = expand('~/.cache/tags')
-let g:gutentags_cache_dir = s:vim_tags
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-if !isdirectory(s:vim_tags)
-   silent! call mkdir(s:vim_tags, 'p')
-endif
+" ctags
+" Plug 'ludovicchabant/vim-gutentags'
+" let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+" let g:gutentags_ctags_tagfile = '.tags'
+" let s:vim_tags = expand('~/.cache/tags')
+" let g:gutentags_cache_dir = s:vim_tags
+" let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+" let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+" let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+" if !isdirectory(s:vim_tags)
+"    silent! call mkdir(s:vim_tags, 'p')
+" endif
 
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
+" cpp
+" Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 
 Plug 'Yggdroot/LeaderF'
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -99,12 +101,12 @@ set completeopt-=preview
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-clangd']
+" let g:coc_global_extensions = ['coc-clangd'] # cpp
 set updatetime=300
 autocmd CursorHold * silent call CocActionAsync('highlight')
 set signcolumn=number
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" golang
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
-

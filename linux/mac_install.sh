@@ -13,13 +13,6 @@ ln -s $CPATH/bash/bashrc_mac .bashrc
 ln -s $CPATH/bash/bash_git_ps1.sh .bash_git_ps1.sh
 ln -s $CPATH/bash/alias.sh .alias.sh
 
-# ctags
-cd $HOME
-if [ -h .ctags ] || [ -f .ctags ]; then
-    mv .ctags .ctags.${suffix}
-fi
-ln -s $CPATH/ctags/ctags .ctags
-
 # git
 cd $HOME
 if [ -h .gitconfig ] || [ -f .gitconfig ]; then

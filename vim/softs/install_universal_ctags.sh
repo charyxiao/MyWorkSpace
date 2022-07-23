@@ -7,3 +7,10 @@ unzip p5.9.20201011.0.zip && cd ctags-p5.9.20201011.0
 make -j8
 make install
 
+CPATH=`pwd`
+# ctags
+cd $HOME
+if [ -h .ctags ] || [ -f .ctags ]; then
+    mv .ctags .ctags.${suffix}
+fi
+ln -s $CPATH/ctags .ctags

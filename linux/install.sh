@@ -20,13 +20,6 @@ if [ -h .tmux.conf ] || [ -f .tmux.conf ];then
 fi
 ln -s $CPATH/tmux/tmux.conf .tmux.conf
 
-# ctags
-cd $HOME
-if [ -h .ctags ] || [ -f .ctags ]; then
-    mv .ctags .ctags.${suffix}
-fi
-ln -s $CPATH/ctags/ctags .ctags
-
 # git
 cd $HOME
 if [ -h .gitconfig ] || [ -f .gitconfig ]; then

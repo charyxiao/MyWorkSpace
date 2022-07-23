@@ -71,8 +71,10 @@ vnoremap / /\v
 noremap <silent><leader>/ :nohls<CR>
 " del all space
 noremap <silent><leader><space> :% s/\s\+$//g<CR>
-nmap <silent><unique> <Leader>tag :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
-set tags=./.tags;,.tags
+
+" ctags
+" nmap <silent><unique> <Leader>tag :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
+" set tags=./.tags;,.tags
 
 " Plugin's KeyMap
 " vim-surround
@@ -117,50 +119,51 @@ endfunction
 " 在写入文件之前执行删除行尾空格
 autocmd BufWritePre * call <SID>StripTrailingWhitespaces()
 
-"Google C++ Style
-ab usi using namespace
-autocmd FileType cpp set shiftwidth=2 " 缩进2格
-set cino=N-s                          " namespace缩进问题
-function! GoogleCppIndent()
-    let l:cline_num = line('.')
-    let l:orig_indent = cindent(l:cline_num)
-    if l:orig_indent == 0 | return 0 | endif
-    let l:pline_num = prevnonblank(l:cline_num - 1)
-    let l:pline = getline(l:pline_num)
-    if l:pline =~# '^\s*template' | return l:pline_indent | endif
-    if l:orig_indent != &shiftwidth | return l:orig_indent | endif
-    let l:in_comment = 0
-    let l:pline_num = prevnonblank(l:cline_num - 1)
-    while l:pline_num > -1
-        let l:pline = getline(l:pline_num)
-        let l:pline_indent = indent(l:pline_num)
-        if l:in_comment == 0 && l:pline =~ '^.\{-}\(/\*.\{-}\)\@<!\*/'
-            let l:in_comment = 1
-        elseif l:in_comment == 1
-            if l:pline =~ '/\*\(.\{-}\*/\)\@!'
-                let l:in_comment = 0
-            endif
-        elseif l:pline_indent == 0
-            if l:pline !~# '\(#define\)\|\(^\s*//\)\|\(^\s*{\)'
-                if l:pline =~# '^\s*namespace.*'
-                    return 0
-                else
-                    return l:orig_indent
-                endif
-            elseif l:pline =~# '\\$'
-                return l:orig_indent
-            endif
-        else
-            return l:orig_indent
-        endif
-        let l:pline_num = prevnonblank(l:pline_num - 1)
-    endwhile
-    return l:orig_indent
-endfunction
-
-set cinoptions=h1,l1,g1,t0,i4,+4,(0,w1,W4)
-autocmd BufEnter *.{cc,cxx,cpp,h,hh,hpp,hxx} setlocal indentexpr=GoogleCppIndent()
-let b:undo_indent = "setl sw< ts< sts< et< tw< wrap< cin< cino< inde<"
+" cpp
+" Google C++ Style
+" ab usi using namespace
+" autocmd FileType cpp set shiftwidth=2 " 缩进2格
+" set cino=N-s                          " namespace缩进问题
+" function! GoogleCppIndent()
+"     let l:cline_num = line('.')
+"     let l:orig_indent = cindent(l:cline_num)
+"     if l:orig_indent == 0 | return 0 | endif
+"     let l:pline_num = prevnonblank(l:cline_num - 1)
+"     let l:pline = getline(l:pline_num)
+"     if l:pline =~# '^\s*template' | return l:pline_indent | endif
+"     if l:orig_indent != &shiftwidth | return l:orig_indent | endif
+"     let l:in_comment = 0
+"     let l:pline_num = prevnonblank(l:cline_num - 1)
+"     while l:pline_num > -1
+"         let l:pline = getline(l:pline_num)
+"         let l:pline_indent = indent(l:pline_num)
+"         if l:in_comment == 0 && l:pline =~ '^.\{-}\(/\*.\{-}\)\@<!\*/'
+"             let l:in_comment = 1
+"         elseif l:in_comment == 1
+"             if l:pline =~ '/\*\(.\{-}\*/\)\@!'
+"                 let l:in_comment = 0
+"             endif
+"         elseif l:pline_indent == 0
+"             if l:pline !~# '\(#define\)\|\(^\s*//\)\|\(^\s*{\)'
+"                 if l:pline =~# '^\s*namespace.*'
+"                     return 0
+"                 else
+"                     return l:orig_indent
+"                 endif
+"             elseif l:pline =~# '\\$'
+"                 return l:orig_indent
+"             endif
+"         else
+"             return l:orig_indent
+"         endif
+"         let l:pline_num = prevnonblank(l:pline_num - 1)
+"     endwhile
+"     return l:orig_indent
+" endfunction
+"
+" set cinoptions=h1,l1,g1,t0,i4,+4,(0,w1,W4)
+" autocmd BufEnter *.{cc,cxx,cpp,h,hh,hpp,hxx} setlocal indentexpr=GoogleCppIndent()
+" let b:undo_indent = "setl sw< ts< sts< et< tw< wrap< cin< cino< inde<"
 
 " 强制保存退出时使用clang-format格式化代码
-autocmd! BufWritePost *.c,*.cc,*.cpp,*.cxx,*.h,*.hpp,*.inl,*.proto :silent ! clang-format -style=file -i %
+" autocmd! BufWritePost *.c,*.cc,*.cpp,*.cxx,*.h,*.hpp,*.inl,*.proto :silent ! clang-format -style=file -i %
