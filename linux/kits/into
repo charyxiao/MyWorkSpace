@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+    echo "$0 docker-name"
+    echo "eg:$0 trpc-cpp"
+    exit -1
+fi
+
+docker exec -it $1 /bin/su -
