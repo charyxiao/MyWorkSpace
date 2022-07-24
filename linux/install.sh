@@ -15,9 +15,7 @@ ln -s $CPATH/bash/alias.sh .alias.sh
 
 # install tmux
 cd $HOME
-if [ -h .tmux.conf ] || [ -f .tmux.conf ];then
-    mv .tmux.conf .tmux.conf.${suffix}
-fi
+rm .tmux.conf
 ln -s $CPATH/tmux/tmux.conf .tmux.conf
 
 # git
@@ -29,4 +27,5 @@ ln -s $CPATH/git/gitconfig .gitconfig
 rm .git-completion.bash
 ln -s $CPATH/git/git-completion.bash .git-completion.bash
 
+rm kits
 ln -s $CPATH/kits kits

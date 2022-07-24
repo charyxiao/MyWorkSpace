@@ -11,7 +11,6 @@ alias ts="${kitspath}/ts"
 alias st="${kitspath}/st"
 alias bkb="${kitspath}/bkb"
 alias toftp="${kitspath}/toftp"
-alias cvm="expect ${kitspath}/cvmlogin"
 
 # docker命令
 alias sug='docker exec -it sug /bin/su -'

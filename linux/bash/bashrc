@@ -26,10 +26,11 @@ export LC_ALL=
 # 安装软件位置
 ipath=/root
 export PATH=${ipath}/python3.9/bin:${ipath}/node-v16.14.2-linux-x64/bin:$PATH
-# export PATH=${ipath}/python3.9/bin:${ipath}/clang+llvm-10.0.0-x86_64-linux-sles11.3/bin:${ipath}/node-v16.14.2-linux-x64/bin:$PATH
-alias ctags='${ipath}/ctags5.9/bin/ctags'
-alias vim='${ipath}/vim82/bin/vim'
-alias vimdiff='${ipath}/vim82/bin/vimdiff'
+vim_file="${ipath}/vim82/bin/vim"
+if [ -h ${vim_file} ] || [ -f ${vim_file} ];then
+    alias vim='${ipath}/vim82/bin/vim'
+    alias vimdiff='${ipath}/vim82/bin/vimdiff'
+fi
 
 ulimit -c unlimited
 export TERM="xterm-256color"
