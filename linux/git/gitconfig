@@ -1,6 +1,6 @@
 [user]
-	email = charyxiao@tencent.com
-	name = charyxiao
+	email = dongxiao@tencent.com
+	name = dongxiao
 [core]
     excludesfile = ~/.gitignore
 	quotepath = false
