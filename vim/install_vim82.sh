@@ -22,7 +22,8 @@ sh -x softs/install_clang-format.sh $ipath
 sh -x config/install_vim82_config.sh
 
 # 如果coc报错的话，可以使用下面的命令来安装
-# npm install -g yarn
-# cd ~/.vim/plugged/coc.nvim
-# yarn install
-# yarn build
+npm install -g yarn
+cd ~/.vim/plugged/coc.nvim
+yarn install
+yarn build
+cd -
