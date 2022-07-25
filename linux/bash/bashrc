@@ -1,3 +1,11 @@
+###
+ # @Author: dongxiao
+ # @Date: 2022-04-19 09:31:15
+ # @LastEditTime: 2022-07-25 17:35:24
+ # @LastEditors: dongxiao
+ # @FilePath: /MyWorkSpace/linux/bash/bashrc
+ # @Description:
+###
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -30,11 +38,11 @@ vim_file="${ipath}/vim82/bin/vim"
 if [ -h ${vim_file} ] || [ -f ${vim_file} ];then
     alias vim='${ipath}/vim82/bin/vim'
     alias vimdiff='${ipath}/vim82/bin/vimdiff'
+    export EDITOR="${ipath}/vim82/bin/vim"
 fi
 
 ulimit -c unlimited
 export TERM="xterm-256color"
-export EDITOR="${ipath}/vim82/bin/vim"
 
 test -f ~/.git-completion.bash && source ~/.git-completion.bash
 test -f ~/.bash_git_ps1.sh && source ~/.bash_git_ps1.sh
