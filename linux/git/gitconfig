@@ -32,8 +32,6 @@
     lola = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
     log = log --oneline --decorate --graph
     loga = log --oneline --decorate --graph --all
-[difftool "vimdiff"]
-    cmd = /root/vim82/bin/vim -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"
 [push]
 	default = simple
 [merge]
