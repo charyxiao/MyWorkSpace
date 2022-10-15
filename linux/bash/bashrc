@@ -1,11 +1,3 @@
-###
- # @Author: dongxiao
- # @Date: 2022-04-19 09:31:15
- # @LastEditTime: 2022-07-25 17:35:24
- # @LastEditors: dongxiao
- # @FilePath: /MyWorkSpace/linux/bash/bashrc
- # @Description:
-###
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -30,29 +22,9 @@ export LC_TIME="en_US.UTF-8"
 export LC_NAME="en_US.UTF-8"
 export LC_ALL=
 
-
-# 安装软件位置
-ipath=/root
-export PATH=${ipath}/python3.9/bin:${ipath}/node-v16.14.2-linux-x64/bin:$PATH
-vim_file="${ipath}/vim82/bin/vim"
-if [ -h ${vim_file} ] || [ -f ${vim_file} ];then
-    alias vim='${ipath}/vim82/bin/vim'
-    alias vimdiff='${ipath}/vim82/bin/vimdiff'
-    export EDITOR="${ipath}/vim82/bin/vim"
-fi
-
 ulimit -c unlimited
 export TERM="xterm-256color"
 
 test -f ~/.git-completion.bash && source ~/.git-completion.bash
 test -f ~/.bash_git_ps1.sh && source ~/.bash_git_ps1.sh
 test -f ~/.alias.sh && source ~/.alias.sh
-
-#For Tencent
-export GONOPROXY="*.code.oa.com"
-export GONOSUMDB="*.code.oa.com"
-export GOPRIVATE="*.code.oa.com"
-export GOINSECURE="*.code.oa.com"
-export GOPROXY=https://goproxy.cn,direct
-export GOSUMDB=off
-export PATH=$PATH:/usr/local/go/bin:~/go/bin

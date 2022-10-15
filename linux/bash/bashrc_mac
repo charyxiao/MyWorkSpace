@@ -9,12 +9,3 @@ export EDITOR=vim
 alias realink='greadlink'
 alias vim='/opt/homebrew/bin/vim'
 alias grep='/opt/homebrew/bin/ggrep'
-
-# For tencent
-export GONOPROXY="*.code.oa.com"
-export GONOSUMDB="*.code.oa.com"
-export GOPRIVATE="*.code.oa.com"
-export GOINSECURE="*.code.oa.com"
-export http_proxy=http://127.0.0.1:12639
-export https_proxy=http://127.0.0.1:12639
-export all_proxy=http://127.0.0.1:12639

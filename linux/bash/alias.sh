@@ -4,6 +4,7 @@ alias mv='mv -i'
 alias grep='/bin/grep --color'
 alias ls='ls --color'
 alias ll='ls -lF'
+alias gst='git status'
 
 # 工具类
 kitspath=${HOME}/kits

@@ -1,21 +1,12 @@
 [user]
 	email = dongxiao@tencent.com
 	name = dongxiao
-[core]
-    excludesfile = ~/.gitignore
-	quotepath = false
-	longpaths = true
-	autocrlf = input
-	trustctime = false
-	attributesfile = ~/.attributes_global
-	ignorecase = true
 [color]
     ui = auto
 [diff]
 	tool = vimdiff
-[difftool]
-	prompt = false
-	prompt = false
+[merge]
+	tool = vimdiff
 [alias]
     st = status
     co = checkout
@@ -32,32 +23,7 @@
     lola = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
     log = log --oneline --decorate --graph
     loga = log --oneline --decorate --graph --all
-[push]
-	default = simple
-[merge]
-	tool = vimdiff
 [credential]
     helper = store
 [url "http://"]
     insteadOf = https://
-[http]
-	postBuffer = 655360000
-[diff "text"]
-	textconv = cat
-[mergetool]
-	keepBackup = false
-[lfs]
-	concurrenttransfers = 32
-	fetchrecentrefsdays = 0
-	pruneoffsetdays = 0
-[rebase]
-	backend = apply
-[protocol]
-	version = 1
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-[url "git@git.code.oa.com:"]
-	insteadOf = https://git.code.oa.com/
